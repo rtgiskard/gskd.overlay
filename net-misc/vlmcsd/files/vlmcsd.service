@@ -1,0 +1,13 @@
+[Unit]
+Description=KMS activation using vlmcsd
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/vlmcsd -D -i /etc/conf.d/vlmcsd.ini
+Restart=on-abort
+KillSignal=SIGTERM
+PIDFile=/var/run/vlmcsd/vlmcsd.pid
+
+[Install]
+WantedBy=multi-user.target

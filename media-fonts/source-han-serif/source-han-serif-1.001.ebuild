@@ -1,9 +1,8 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-# based on: source-han-sans-1.004.ebuild
-
 EAPI=6
+
 inherit font
 
 # Note to maintainers:
@@ -24,7 +23,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd 
 IUSE="l10n_ja l10n_ko +l10n_zh-CN l10n_zh-TW"
 REQUIRED_USE="|| ( l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW )"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 FONT_SUFFIX="otf"
 RESTRICT="binchecks strip"
 

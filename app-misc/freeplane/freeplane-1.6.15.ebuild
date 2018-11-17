@@ -1,8 +1,6 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-# based on: freeplane-1.5.18.ebuild
-
 EAPI=7
 
 inherit virtualx
@@ -35,15 +33,16 @@ src_compile() {
 src_test() {
 	# disable --offline and then generate cache file with: ebuild clean test
 	echo "pack cache file to reuse for offline building .."
-	tar --xz -cf "${WORKDIR}/${PF}-gradle-cache.tar.xz" -C "${WORKDIR}" .gradle/caches/modules-2
+	tar --xz -cf "${WORKDIR}/${PF}-gradle-cache.tar.xz" -C "${WORKDIR}" \
+		.gradle/caches/modules-2 || die
 
-	virtx ${GRADLE} check test || die
+	virtx ${GRADLE} check test
 }
 
 src_install() {
 	cd BIN || die
 	sed -e "/freepath=/s:=.*:=${EROOT}usr/share/${PN}:" \
-		-i freeplane.sh
+		-i freeplane.sh || die
 	newbin freeplane.sh freeplane
 
 	insinto /usr/share/${PN}

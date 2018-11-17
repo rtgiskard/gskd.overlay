@@ -6,8 +6,6 @@
 		<name>giskard</name>
 	</maintainer>
 	<use>
-		<flag name="systemd">Support for systemd</flag>
-		<flag name="rbd">Support for ceph rbd</flag>
 		<flag name="glfs">Support for glusterfs</flag>
 		<flag name="zbc">Support for zoned block device</flag>
 		<flag name="qcow">Support for qcow image file</flag>

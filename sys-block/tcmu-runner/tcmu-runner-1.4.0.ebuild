@@ -1,14 +1,6 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-# with reference to:
-#	ebuild: sys-block/open-iscsi
-#	ebuild: sys-block/fio
-#	ebuild: app-admin/conky
-#	tcmu-runner.spec
-#	https://devmanual.gentoo.org/ebuild-writing/eapi/index.html
-#
-
 EAPI=6
 
 inherit cmake-utils linux-info
@@ -20,7 +12,7 @@ SRC_URI="https://github.com/open-iscsi/${PN}/archive/v${PVR}.tar.gz -> ${PF}.tar
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="rbd glfs +zbc +qcow +systemd"
+IUSE="glfs +qcow rbd +systemd +zbc"
 
 DEPEND="
 	dev-libs/glib:2
@@ -47,7 +39,8 @@ pkg_setup() {
 	CONFIG_CHECK_MODULES="TCM_USER2"
 	if linux_config_exists; then
 		for module in ${CONFIG_CHECK_MODULES}; do
-			linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
+			linux_chkconfig_module ${module} || \
+				ewarn "${module} needs to be built as module (builtin doesn't work)"
 		done
 	fi
 }

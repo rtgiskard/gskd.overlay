@@ -1,16 +1,15 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-# based on: gradle-bin-3.4.1.ebuild
-
 EAPI="7"
 
 MY_PN=${PN%%-bin}
 MY_P="${MY_PN}-${PV/_rc/-rc-}"
 
 DESCRIPTION="A project automation and build tool with a Groovy based DSL"
-SRC_URI="http://services.gradle.org/distributions/${MY_P}-all.zip"
-HOMEPAGE="http://www.gradle.org/"
+HOMEPAGE="https://gradle.org/"
+SRC_URI="https://services.gradle.org/distributions/${MY_P}-all.zip"
+
 LICENSE="Apache-2.0"
 SLOT="${PV}"
 KEYWORDS="~amd64 ~x86"
@@ -18,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="app-arch/zip"
 RDEPEND=">=virtual/jdk-1.6"
 
-IUSE="source doc examples"
+IUSE="doc examples source"
 
 S="${WORKDIR}/${MY_P}"
 

@@ -7,8 +7,9 @@
 	</maintainer>
 	<use>
 		<flag name="glfs">Support for glusterfs</flag>
-		<flag name="zbc">Support for zoned block device</flag>
 		<flag name="qcow">Support for qcow image file</flag>
+		<flag name="rbd">Support for rados block device</flag>
+		<flag name="zbc">Support for zoned block device</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">open-iscsi/tcmu-runner</remote-id>

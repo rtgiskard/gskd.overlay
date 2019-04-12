@@ -38,7 +38,5 @@ src_install() {
 	newins "${FILESDIR}"/vlmcsd.ini vlmcsd.ini
 
 	systemd_dounit "${FILESDIR}"/vlmcsd.service
-
-	dodir /var/run/${PN}
-	fowners nobody:nobody /var/run/${PN}
+	systemd_newtmpfilesd "${FILESDIR}"/vlmcsd.tmpfiles.conf vlmcsd.conf
 }

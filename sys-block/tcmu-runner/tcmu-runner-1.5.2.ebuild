@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils linux-info
 
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/open-iscsi/${PN}/archive/v${PVR}.tar.gz -> ${PF}.tar
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="glfs +qcow rbd +systemd +zbc"
+IUSE="+fbo +glfs +qcow rbd +systemd +tcmalloc +zbc"
 
 DEPEND="
 	dev-libs/glib:2
@@ -21,12 +21,12 @@ DEPEND="
 	sys-apps/kmod
 	rbd? ( sys-cluster/ceph )
 	glfs? ( sys-cluster/glusterfs )
+	tcmalloc? ( dev-util/google-perftools )
 	systemd? ( sys-apps/systemd )
 	"
 BDEPEND="${DEPEND}"
 RDEPEND="${DEPEND}"
 
-# should not provide a value for this variable if it is the same as the default value
 S="${WORKDIR}/${PF}"
 
 pkg_setup() {
@@ -49,10 +49,12 @@ src_configure() {
 	local mycmakeargs
 
 	mycmakeargs=(
-		-Dwith-rbd=$(usex rbd)
-		-Dwith-glfs=$(usex glfs)
-		-Dwith-zbc=$(usex zbc)
 		-Dwith-qcow=$(usex qcow)
+		-Dwith-fbo=$(usex fbo)
+		-Dwith-glfs=$(usex glfs)
+		-Dwith-rbd=$(usex rbd)
+		-Dwith-zbc=$(usex zbc)
+		-Dwith-tcmalloc=$(usex tcmalloc)
 		-DSUPPORT_SYSTEMD=$(usex systemd)
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)

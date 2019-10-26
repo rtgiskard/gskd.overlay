@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,6 +9,11 @@ DESCRIPTION="Java application for Mind Mapping, Knowledge and Project Management
 HOMEPAGE="https://www.freeplane.org/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}%20stable/${PN}_src-${PV}.tar.gz
 	https://github.com/rtgiskard/pkgs/raw/master/gentoo/distfiles/${PF}-gradle-cache.tar.xz"
+
+## manually build freeplane with network, then pack cache for offline build:
+# tar --xz -cf "${WORKDIR}/${PF}-gradle-cache.tar.xz" -C "${WORKDIR}" \
+#	.gradle/caches/modules-2 || die
+
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,11 +36,6 @@ src_compile() {
 }
 
 src_test() {
-	# disable --offline and then generate cache file with: ebuild clean test
-	echo "pack cache file to reuse for offline building .."
-	tar --xz -cf "${WORKDIR}/${PF}-gradle-cache.tar.xz" -C "${WORKDIR}" \
-		.gradle/caches/modules-2 || die
-
 	virtx ${GRADLE} check test
 }
 

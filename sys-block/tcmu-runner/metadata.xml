@@ -6,10 +6,11 @@
 		<name>giskard</name>
 	</maintainer>
 	<use>
-		<flag name="glfs">Support for glusterfs</flag>
-		<flag name="qcow">Support for qcow image file</flag>
-		<flag name="rbd">Support for rados block device</flag>
-		<flag name="zbc">Support for zoned block device</flag>
+		<flag name="fbo">Enable the file optional backend support</flag>
+		<flag name="glfs">Enable glusterfs backend support via sys-cluster/glusterfs</flag>
+		<flag name="qcow">Enable qcow image backend support</flag>
+		<flag name="rbd">Enable rados block device backend support via sys-cluster/ceph</flag>
+		<flag name="zbc">Enable zoned block device backend support</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">open-iscsi/tcmu-runner</remote-id>

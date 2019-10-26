@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 # Ignore rudimentary et, uz@Latn, zh_TW translation(s).
 PLOCALES="cs cs_CZ de el es es_MX fr gl hu it ja_JP lt ms_MY nb nl nl_BE pl pl_PL pt_BR pt_PT ro_RO ru sr sr@latin tr uk zh_CN"
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/flacon/flacon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="test +ape +tta +mp3gain +vorbisgain"
 
 RDEPEND="

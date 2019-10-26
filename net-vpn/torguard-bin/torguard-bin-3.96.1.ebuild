@@ -1,9 +1,5 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-#
-# todo:
-#	- QA Notice: Pre-stripped files found
-#	- QA Notice: The following files contain writable and executable sections
 
 EAPI=7
 
@@ -21,7 +17,6 @@ KEYWORDS="~amd64"
 DEPEND=""
 RDEPEND="${DEPEND} sys-apps/iproute2"
 
-# should not provide a value for this variable if it is the same as the default value
 S="${WORKDIR}/${MY_P}"
 
 

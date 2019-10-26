@@ -1,12 +1,12 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit user desktop
 
-DESCRIPTION="TorGuard VPN Software"
-HOMEPAGE="www.torguard.com"
+DESCRIPTION="TorGuard VPN Client"
+HOMEPAGE="https://torguard.net"
 MY_P="torguard-v${PV}-amd64-arch"
 SRC_URI="https://updates.torguard.biz/Software/Linux/${MY_P}.tar.gz"
 
@@ -14,11 +14,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
-RDEPEND="${DEPEND} sys-apps/iproute2"
+RDEPEND="sys-apps/iproute2"
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"
-
 
 src_unpack() {
 	unpack ${A}

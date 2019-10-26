@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,6 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}%20stable/${PN}_src-${PV}.tar.gz
 ## manually build freeplane with network, then pack cache for offline build:
 # tar --xz -cf "${WORKDIR}/${PF}-gradle-cache.tar.xz" -C "${WORKDIR}" \
 #	.gradle/caches/modules-2 || die
-
 
 LICENSE="GPL-2"
 SLOT="0"

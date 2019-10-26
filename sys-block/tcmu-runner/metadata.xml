@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>rtgiskard@gmail.com</email>
-		<name>giskard</name>
-	</maintainer>
 	<use>
 		<flag name="fbo">Enable the file optional backend support</flag>
 		<flag name="glfs">Enable glusterfs backend support via sys-cluster/glusterfs</flag>

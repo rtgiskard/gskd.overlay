@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">flacon/flacon</remote-id>
+	</upstream>
 	<use>
 		<flag name="ape">add APE input support</flag>
 		<flag name="tta">add TTA input support</flag>
 		<flag name="mp3gain">add MP3 Replay Gain support</flag>
 		<flag name="vorbisgain">add Vorbis Replay Gain support</flag>
 	</use>
-	<upstream>
-		<remote-id type="github">flacon/flacon</remote-id>
-	</upstream>
 </pkgmetadata>

@@ -1,13 +1,12 @@
 = Gentoo overlay of giskard
 
-Personal https://wiki.gentoo.org/wiki/Ebuild_repository[Gentoo overlay]
-with some tools, updates, new packages and paches not yet in the official
-portage tree.
+Personal https://wiki.gentoo.org/wiki/Ebuild_repository[Gentoo overlay] with
+some tools, updates and paches not yet in the official portage tree.
 
-some of the ebuilds are based on existing one with references kept in the
-ebuild file. The packages is not fully tested to work totally fine, while it
-should at least compile and work properly with the main functions.
+Some of the ebuilds are based on existing one, and most are not fully tested to
+work completely fine, while it should at least compile and work properly for
+the main functions.
 
-Any attempt to merge any of the ebuild into the official repo is welcomed,
-feel free to do that.
+Any attempt to merge any of the ebuild into the official repo is welcomed, feel
+free to do that.
 

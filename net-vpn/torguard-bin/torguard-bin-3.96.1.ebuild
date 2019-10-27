@@ -27,36 +27,29 @@ src_unpack() {
 
 src_install() {
 
-	local f_torguard=./opt/torguard
-	local f_icon=./usr/share/pixmaps/torguard.png
-	local f_desktop=./usr/share/applications/torguard.desktop
-	local f_policy=./usr/share/polkit-1/actions/com.torguard.policy
-	local f_sudoer=./etc/sudoers.d/torguard
+	local opt_root="/opt/torguard"
+	dodir ${opt_root}
 
-	local md_dest="/opt/torguard"
-	dodir ${md_dest}
+	insinto $opt_root
+	doins -r "./opt/torguard"/*
 
-	insinto $md_dest
-	doins -r "$f_torguard"/*
+	doicon "./usr/share/pixmaps/torguard.png"
+	domenu "./usr/share/applications/torguard.desktop"
+	insinto /usr/share/polkit-1/actions
+	doins "./usr/share/polkit-1/actions/com.torguard.policy"
+	insinto /etc/sudoers.d
+	doins "./etc/sudoers.d/torguard"
 
-	doicon "$f_icon"
-	insinto /usr/share/applications/
-	doins "$f_desktop"
-	insinto /usr/share/polkit-1/actions/
-	doins "$f_policy"
-	insinto /etc/sudoers.d/
-	doins "$f_sudoer"
-
-	fperms 755 "$md_dest"/bin/torguard
-	fperms 755 "$md_dest"/bin/torguard-wrapper
-	fperms 755 "$md_dest"/bin/ss-local
-	fperms 755 "$md_dest"/bin/openvpn_v2_4
-	fperms 755 "$md_dest"/bin/openconnect
-	fperms 755 "$md_dest"/bin/vpnc-script
-	fperms 755 "$md_dest"/bin/stunnel
+	fperms 755 "$opt_root"/bin/torguard
+	fperms 755 "$opt_root"/bin/torguard-wrapper
+	fperms 755 "$opt_root"/bin/ss-local
+	fperms 755 "$opt_root"/bin/openvpn_v2_4
+	fperms 755 "$opt_root"/bin/openconnect
+	fperms 755 "$opt_root"/bin/vpnc-script
+	fperms 755 "$opt_root"/bin/stunnel
 	fperms 440 /etc/sudoers.d/torguard
 
-	dosym "$md_dest"/bin/torguard-wrapper /usr/bin/torguard
+	dosym "$opt_root"/bin/torguard-wrapper /usr/bin/torguard
 }
 
 pkg_setup() {

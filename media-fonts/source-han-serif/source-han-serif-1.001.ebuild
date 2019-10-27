@@ -27,6 +27,8 @@ S="${WORKDIR}"
 FONT_SUFFIX="otf"
 RESTRICT="binchecks strip"
 
+BDEPEND="app-arch/unzip"
+
 src_install() {
 	use l10n_ja && FONT_S="${S}/SourceHanSerifJP" font_src_install
 	use l10n_ko && FONT_S="${S}/SourceHanSerifKR" font_src_install

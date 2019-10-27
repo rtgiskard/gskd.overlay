@@ -16,16 +16,14 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}%20stable/${PN}_src-${PV}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 JAVA_PKG_IUSE="doc"
 VIRTUALX_REQUIRED="test"
 
-RDEPEND=">=virtual/jre-1.8"
-DEPEND="${DEPEND}
-	>=virtual/jdk-1.8
-	dev-java/gradle-bin"
+BDEPEND="dev-java/gradle-bin"
+DEPEND=">=virtual/jre-1.8"
 
 src_compile() {
 	GRADLE="gradle --gradle-user-home ${WORKDIR}/.gradle --console rich --no-daemon"
@@ -40,7 +38,7 @@ src_test() {
 
 src_install() {
 	cd BIN || die
-	sed -e "/freepath=/s:=.*:=${EROOT%/}/usr/share/${PN}:" \
+	sed -e "/freepath=/s:=.*:=${EROOT}/usr/share/${PN}:" \
 		-i freeplane.sh || die
 	newbin freeplane.sh freeplane
 

@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake-utils linux-info
 
 DESCRIPTION="A daemon that handles the userspace side of the LIO TCM-User backstore"
-HOMEPAGE="http://www.open-iscsi.com/"
+HOMEPAGE="https://www.open-iscsi.com/"
 SRC_URI="https://github.com/open-iscsi/${PN}/archive/v${PVR}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-2"
@@ -17,24 +17,20 @@ IUSE="glfs +qcow rbd +systemd +zbc"
 RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libnl:3
-	sys-libs/zlib
-	sys-apps/kmod
-	rbd? ( sys-cluster/ceph )
 	glfs? ( <sys-cluster/glusterfs-6.0 )
+	rbd? ( sys-cluster/ceph )
+	sys-apps/kmod
+	sys-libs/zlib
 	systemd? ( sys-apps/systemd )"
 BDEPEND="
-	rbd? ( sys-cluster/ceph )
-	glfs? ( <sys-cluster/glusterfs-6.0 )"
+	glfs? ( <sys-cluster/glusterfs-6.0 )
+	rbd? ( sys-cluster/ceph )"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${PF}"
 
 pkg_setup() {
 	linux-info_pkg_setup
-
-	if kernel_is -lt 2 6 16; then
-		die "Sorry, your kernel must be 2.6.16-rc5 or newer!"
-	fi
 
 	CONFIG_CHECK_MODULES="TCM_USER2"
 	if linux_config_exists; then
@@ -49,12 +45,12 @@ src_configure() {
 	local mycmakeargs
 
 	mycmakeargs=(
-		-Dwith-rbd=$(usex rbd)
-		-Dwith-glfs=$(usex glfs)
-		-Dwith-zbc=$(usex zbc)
-		-Dwith-qcow=$(usex qcow)
-		-DSUPPORT_SYSTEMD=$(usex systemd)
 		-DCMAKE_INSTALL_PREFIX=/usr
+		-DSUPPORT_SYSTEMD=$(usex systemd)
+		-Dwith-glfs=$(usex glfs)
+		-Dwith-qcow=$(usex qcow)
+		-Dwith-rbd=$(usex rbd)
+		-Dwith-zbc=$(usex zbc)
 	)
 
 	cmake-utils_src_configure

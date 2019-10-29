@@ -3,12 +3,13 @@
 
 EAPI=7
 
+# todo ..
 # Ignore rudimentary et, uz@Latn, zh_TW translation(s).
 PLOCALES="cs cs_CZ de el es es_MX fr gl hu it ja_JP lt ms_MY nb nl nl_BE pl pl_PL pt_BR pt_PT ro_RO ru sr sr@latin tr uk zh_CN"
 # Tests require lots of disk space
 CHECKREQS_DISK_BUILD=10G
 
-inherit check-reqs cmake-utils eutils gnome2-utils l10n virtualx xdg-utils
+inherit check-reqs cmake-utils eutils l10n virtualx xdg-utils
 
 DESCRIPTION="Extracts audio tracks from an audio CD image to separate tracks"
 HOMEPAGE="https://flacon.github.io/"
@@ -17,7 +18,7 @@ SRC_URI="https://github.com/flacon/flacon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test +ape +tta +mp3gain +vorbisgain"
+IUSE="+ape +mp3gain test +tta +vorbisgain"
 
 RDEPEND="
 	app-i18n/uchardet
@@ -26,12 +27,12 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 "
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
+	ape? ( media-sound/mac )
 	dev-qt/linguist-tools:5
 	dev-qt/qtconcurrent:5
-	ape? ( media-sound/mac )
-	tta? ( media-sound/ttaenc )
 	mp3gain? ( media-sound/mp3gain )
+	tta? ( media-sound/ttaenc )
+	virtual/pkgconfig
 	vorbisgain? ( media-sound/vorbisgain )
 	test? (
 		dev-qt/qttest:5
@@ -81,21 +82,21 @@ pkg_postinst() {
 	elog "${PN} optionally supports formats listed below."
 	elog "(List will be empty if all extra packages are installed.)"
 	elog "Please install the required packages and restart ${PN}."
-	optfeature 'FLAC input and output support' media-libs/flac
-	optfeature 'WavPack input and output support' media-sound/wavpack
-	optfeature 'APE input support' media-sound/mac
-	optfeature 'TTA input support' media-sound/ttaenc
 	optfeature 'AAC output support' media-libs/faac
-	optfeature 'MP3 output support' media-sound/lame
-	optfeature 'Vorbis output support' media-sound/vorbis-tools
+	optfeature 'APE input support' media-sound/mac
+	optfeature 'FLAC input and output support' media-libs/flac
 	optfeature 'MP3 Replay Gain support' media-sound/mp3gain
+	optfeature 'MP3 output support' media-sound/lame
+	optfeature 'TTA input support' media-sound/ttaenc
 	optfeature 'Vorbis Replay Gain support' media-sound/vorbisgain
+	optfeature 'Vorbis output support' media-sound/vorbis-tools
+	optfeature 'WavPack input and output support' media-sound/wavpack
 
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }

@@ -30,6 +30,8 @@ src_install() {
 	local opt_root="/opt/torguard"
 	dodir ${opt_root}
 
+	# the extracted files just share a directory hierarchy like this
+
 	insinto $opt_root
 	doins -r "./opt/torguard"/*
 
@@ -53,6 +55,7 @@ src_install() {
 }
 
 pkg_setup() {
+	# todo: with reference: https://wiki.gentoo.org/wiki/Categories_acct-group_and_acct-user
 	enewuser torguard
 	enewgroup torguard
 }

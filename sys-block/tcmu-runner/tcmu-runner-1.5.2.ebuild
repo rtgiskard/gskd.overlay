@@ -17,13 +17,13 @@ IUSE="+fbo +glfs +qcow rbd +systemd +tcmalloc +zbc"
 RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libnl:3
-	glfs? ( <sys-cluster/glusterfs-6.0 )
+	glfs? ( sys-cluster/glusterfs )
 	rbd? ( sys-cluster/ceph )
 	sys-apps/kmod
 	sys-libs/zlib
 	systemd? ( sys-apps/systemd )"
 BDEPEND="
-	glfs? ( <sys-cluster/glusterfs-6.0 )
+	glfs? ( sys-cluster/glusterfs )
 	rbd? ( sys-cluster/ceph )"
 DEPEND="${RDEPEND}"
 

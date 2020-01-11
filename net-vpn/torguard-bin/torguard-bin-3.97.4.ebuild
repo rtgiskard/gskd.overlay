@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit user desktop
+inherit desktop
 
 DESCRIPTION="TorGuard VPN Client"
 HOMEPAGE="https://torguard.net"
@@ -14,7 +14,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="sys-apps/iproute2"
+RDEPEND="
+	acct-group/torguard
+	acct-user/torguard
+	sys-apps/iproute2
+	"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"
@@ -52,10 +56,4 @@ src_install() {
 	fperms 440 /etc/sudoers.d/torguard
 
 	dosym "$opt_root"/bin/torguard-wrapper /usr/bin/torguard
-}
-
-pkg_setup() {
-	# todo: with reference: https://wiki.gentoo.org/wiki/Categories_acct-group_and_acct-user
-	enewuser torguard
-	enewgroup torguard
 }

@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,8 +6,6 @@ EAPI=7
 # todo ..
 # Ignore rudimentary et, uz@Latn, zh_TW translation(s).
 PLOCALES="cs cs_CZ de el es es_MX fr gl hu it ja_JP lt ms_MY nb nl nl_BE pl pl_PL pt_BR pt_PT ro_RO ru sr sr@latin tr uk zh_CN"
-# Tests require lots of disk space
-CHECKREQS_DISK_BUILD=10G
 
 inherit check-reqs cmake-utils eutils l10n virtualx xdg-utils
 

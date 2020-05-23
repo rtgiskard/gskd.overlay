@@ -6,7 +6,3 @@ some tools, updates and paches not yet in the official portage tree.
 Some of the ebuilds are based on existing one, and most are not fully tested to
 work completely fine, while it should at least compile and work properly for
 the main functions.
-
-Any attempt to merge any of the ebuild into the official repo is welcomed, feel
-free to do that.
-

@@ -47,7 +47,7 @@ src_install() {
 	fperms 755 "$opt_root"/bin/torguard
 	fperms 755 "$opt_root"/bin/torguard-wrapper
 	fperms 755 "$opt_root"/bin/ss-local
-	fperms 755 "$opt_root"/bin/openvpn_v2_4
+	fperms 755 "$opt_root"/bin/openvpn
 	fperms 755 "$opt_root"/bin/openconnect
 	fperms 755 "$opt_root"/bin/vpnc-script
 	fperms 755 "$opt_root"/bin/stunnel

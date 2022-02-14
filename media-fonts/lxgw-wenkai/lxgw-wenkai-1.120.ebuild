@@ -6,16 +6,18 @@ EAPI=7
 MY_P="${PN}-v${PV}"
 S=${WORKDIR}/${MY_P}
 
-inherit font
+inherit font unpacker
 
 DESCRIPTION="An open-source Chinese font derived from Fontworks' Klee One"
 HOMEPAGE="https://github.com/lxgw/LxgwWenKai"
-SRC_URI="https://github.com/lxgw/LxgwWenKai/releases/download/v${PV}/LxgwWenKai-v${PV}.tar.gz -> ${MY_P}.tgz"
+SRC_URI="https://github.com/lxgw/LxgwWenKai/releases/download/v${PV}/${MY_P}.tar.zst"
 
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~ppc ~riscv x86 ~ppc-macos ~x64-macos"
 IUSE=""
+
+BDEPEND="$(unpacker_src_uri_depends)"
 
 # Only installs fonts
 RESTRICT="binchecks strip test"

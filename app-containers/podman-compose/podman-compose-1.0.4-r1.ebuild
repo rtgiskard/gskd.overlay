@@ -9,14 +9,14 @@ PYTHON_COMPAT=( python3_{8..11} )
 inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="An implementation of Compose Spec with Podman backend"
-HOMEPAGE="https://github.com/containers/podman-compose"
+HOMEPAGE="https://github.com/rtgiskard/podman-compose"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/containers/podman-compose.git"
+	EGIT_REPO_URI="https://github.com/rtgiskard/podman-compose.git"
 	EGIT_BRANCH="devel"
 else
-	SRC_URI="https://github.com/containers/podman-compose/archive/refs/tags/v${PVR}.tar.gz -> ${PF}.tar.gz"
+	SRC_URI="https://github.com/rtgiskard/podman-compose/archive/refs/tags/v${PVR}.tar.gz -> ${PF}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~riscv"
 	S="${WORKDIR}/${PF}"
 fi

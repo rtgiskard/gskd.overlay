@@ -10,7 +10,7 @@ if [[ ${PV} == 9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/cboxdoerfer/ddb_quick_search.git"
 else
 	SRC_URI="https://mirror.rt/gskd.pkgs/deadbeef/ddb_quick_search.tar.zst -> ${PF}.tar.zst"
-	KEYWORDS="amd64 arm64 riscv"
+	KEYWORDS="amd64"
 fi
 
 S="${WORKDIR}/ddb_quick_search"

@@ -11,7 +11,7 @@ if [[ ${PV} == 9999* ]] ; then
 else
 	SRC_URI="https://mirror.rt/gskd.pkgs/deadbeef/deadbeef-mpris2.tar.zst -> ${PF}.tar.zst"
 	S="${WORKDIR}/${PN}"
-	KEYWORDS="amd64 arm64 riscv"
+	KEYWORDS="amd64"
 fi
 
 DESCRIPTION="MPRISv2 plugin for the DeaDBeeF audio player"

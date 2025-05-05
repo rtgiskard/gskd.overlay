@@ -13,10 +13,10 @@ else
 	KEYWORDS="amd64"
 fi
 
-S="${WORKDIR}/ddb_spectrogram"
-
 DESCRIPTION="Spectrogram plugin for DeaDBeeF music player"
 HOMEPAGE="https://github.com/cboxdoerfer/ddb_spectrogram"
+
+S="${WORKDIR}/ddb_spectrogram"
 
 LICENSE="GPL-2"
 SLOT="0"

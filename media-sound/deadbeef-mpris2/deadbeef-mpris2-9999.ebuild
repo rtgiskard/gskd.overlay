@@ -9,7 +9,7 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/DeaDBeeF-Player/deadbeef-mpris2-plugin.git"
 else
-	SRC_URI="https://mirror.rt/gskd.pkgs/deadbeef/deadbeef-mpris2.tar.zst -> ${PF}.tar.zst"
+	SRC_URI="https://github.com/DeaDBeeF-Player/deadbeef-mpris2-plugin/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}"
 	KEYWORDS="amd64"
 fi

@@ -13,10 +13,10 @@ else
 	KEYWORDS="amd64"
 fi
 
-S="${WORKDIR}/ddb_musical_spectrum"
-
 DESCRIPTION="Musical Spectrum plugin for DeaDBeeF music player"
 HOMEPAGE="https://github.com/cboxdoerfer/ddb_musical_spectrum"
+
+S="${WORKDIR}/ddb_musical_spectrum"
 
 LICENSE="GPL-2"
 SLOT="0"

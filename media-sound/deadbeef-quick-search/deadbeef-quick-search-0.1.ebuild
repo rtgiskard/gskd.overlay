@@ -15,7 +15,7 @@ fi
 
 S="${WORKDIR}/ddb_quick_search"
 
-DESCRIPTION="Quick Search Plugin for the DeaDBeeF audio player"
+DESCRIPTION="Quick Search Plugin for the DeaDBeeF music player"
 HOMEPAGE="https://github.com/cboxdoerfer/ddb_quick_search"
 
 LICENSE="GPL-2"

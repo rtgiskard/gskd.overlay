@@ -1,4 +1,3 @@
-= Gentoo overlay of giskard
+= gskd repository, a minimal overlay for gentoo
 
-Personal https://wiki.gentoo.org/wiki/Ebuild_repository[Gentoo overlay] with
-some tools, updates and paches not yet in the official portage tree.
+Just personal collection of ebuilds, serving as a supplement to the Gentoo repository.
